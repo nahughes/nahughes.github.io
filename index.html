@@ -5,6 +5,53 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>The webpage of Noah A. Hughes</title>
 
+	<style>
+		@media only screen and (min-width: 688px) {
+			body {
+			margin: 3em;
+		}
+		}
+
+		body {
+			background-color: #000;
+			color: #FFF;
+			font-family: "Copperplate";
+		}
+
+		a {
+			color: #000;
+			background-color: #FFF;
+		}
+
+		.collapsible {
+		  background-color: #238;
+		  color: white;
+		  cursor: pointer;
+		  padding: 18px;
+		  width: 100%;
+		  border: none;
+		  text-align: left;
+		  outline: none;
+		  font-size: 15px;
+		}
+
+		.active, .collapsible:hover {
+		  background-color: #921;
+		}
+
+		.content {
+		  padding: 0 18px;
+		  display: none;
+		  overflow: hidden;
+		  background-color: #f1f1f1;
+		}
+
+		#welcome {
+			background-color: #199;
+			color: #FFF;
+		}
+	</style>
+
 </head>
 <body>
 	<div id="welcome">
@@ -16,9 +63,10 @@
 		Winston-Salem State University<br>
 	</div>
 		
-	<hr>
+	<!-- <hr> -->
 
-	<div id="about">
+	<button type="button" class="collapsible">About</button>
+	<div id="about" style="display: none;">
 		<p>Hello! I hope your enjoy your stay.</p>
 		
 		<p>My name is Noah Hughes and I am an Assistant Professor of mathematics at Winston-Salem State University.</p> 
@@ -38,9 +86,10 @@
 		</p>
 	</div>
 
-	<hr>
+	<!-- <hr> -->
 
-	<div id="research">
+	<button type="button" class="collapsible">Research</button>
+	<div id="research" style="display: none;">
 		<p>Below you will find my scholarly work. Please note that all linked titles direct to unpublished drafts.</p>
 
 		<h3>Journal articles</h3>
@@ -69,9 +118,10 @@
 			Honors undergraduate thesis, Appalachian State University, 2014.</p>
 	</div>
 
-	<hr>
+	<!-- <hr> -->
 
-	<div id="talks">
+	<button type="button" class="collapsible">Talks</button>
+	<div id="talks" style="display: none;">
 	Listed below are all presentations I have given at scholarly meetings in chronological order.
 
 	<h4>2019</h4>
@@ -138,9 +188,10 @@
        		Greensboro NC, October</p>
 	</div>
 
-	<hr>
+	<!-- <hr> -->
 
-	<div id="teaching">
+	<button type="button" class="collapsible">Teaching</button>
+	<div id="teaching" style="display: none;">
 	<p>I am currently teaching:</p>
 
 		<p style="text-indent: 7%;">Linear Algebra</p>
@@ -172,5 +223,21 @@
       <p style="text-indent: 7%;">College Algebra with Applications
         Fall 2014, Spring 2015</p>
 
+  <script>
+		var coll = document.getElementsByClassName("collapsible");
+		var i;
+
+		for (i = 0; i < coll.length; i++) {
+		  coll[i].addEventListener("click", function() {
+		    this.classList.toggle("active");
+		    var content = this.nextElementSibling;
+		    if (content.style.display === "block") {
+		      content.style.display = "none";
+		    } else {
+		      content.style.display = "block";
+		    }
+		  });
+		}
+	</script>
 </body>
 </html>
