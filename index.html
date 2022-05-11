@@ -5,6 +5,66 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>The webpage of Noah A. Hughes</title>
 
+	<style>
+		@media only screen and (min-width: 688px) {
+			body {
+			margin: 3em;
+		}
+		}
+
+		html {
+			max-width: 1300px;
+			margin-left: auto;
+			margin-right: auto;
+		}
+
+		button {
+			font-family: "Copperplate";
+		}
+		body {
+			background-color: #000;
+			color: #FFF;
+			font-family: "Copperplate";
+		}
+
+		a {
+			color: #1098F7;
+			text-decoration: none; 
+		}
+		a:hover {
+			text-decoration: underline;
+		}
+
+		.collapsible {
+		  background-color: #c8102e;
+		  color: white;
+		  cursor: pointer;
+		  padding: 1em;
+		  width: 100%;
+		  border: none;
+		  text-align: left;
+		  outline: none;
+		}
+
+		.active, .collapsible:hover {
+		  background-color: #970C23;
+		}
+
+		.content {
+		  padding: 0 18px;
+		  display: none;
+		  overflow: hidden;
+		  /*background-color: #f1f1f1;*/
+		}
+
+		.header {
+			display: none; 
+			border: solid; 
+			padding: 0em 1em; 
+			border-color: #970C23;
+		}
+	</style>
+
 </head>
 <body>
 	<div id="welcome">
@@ -15,10 +75,9 @@
 		Department of Mathematics<br>
 		Winston-Salem State University<br>
 	</div>
-		
-	<hr>
 
-	<div id="about">
+	<button type="button" class="collapsible">About</button>
+	<div id="about" class="header">
 		<p>Hello! I hope your enjoy your stay.</p>
 		
 		<p>My name is Noah Hughes and I am an Assistant Professor of mathematics at Winston-Salem State University.</p> 
@@ -38,41 +97,39 @@
 		</p>
 	</div>
 
-	<hr>
-
-	<div id="research">
+	<button type="button" class="collapsible">Research</button>
+	<div id="research" class="header">
 		<p>Below you will find my scholarly work. Please note that all linked titles direct to unpublished drafts.</p>
 
 		<h3>Journal articles</h3>
-			<p><a href="papers/hh724sub.pdf">Reverse mathematics and marriage problems with finitely many solutions</a>
+			<p><a href="papers2/hh724sub.pdf">Reverse mathematics and marriage problems with finitely many solutions</a>
 			with Jeffry L. Hirst.
 			<br> 
 			Archive for Mathematical Logic, <b>55</b>(7) (2016) 1015--1024. 
 			Available online <a href="http://dx.doi.org/10.1007/s00153-016-0509-4">(DOI) 10.1007/s00153-016-0509-4</a> for subscribers. 
 			This article can be <a href="http://rdcu.be/kAEY">viewed</a> through the Springer Nature Content Sharing Intiative.</p>
 			
-			<p><a href="papers/mpuniquesoln.pdf" target="blank">Reverse mathematics and marriage problems with unique solutions</a> with Jeffry L. Hirst.
+			<p><a href="papers2/mpuniquesoln.pdf" target="blank">Reverse mathematics and marriage problems with unique solutions</a> with Jeffry L. Hirst.
 			<br>
 			Archive for Mathematical Logic <b>54</b> (2015) 49-57. 
 			Available online <a href="http://dx.doi.org/10.1007/s00153-014-0401-z">(DOI) 10.1007/s00153-014-0401-z</a> for subscribers.</p>
 			
-			<p><a href="papers/minrepbn.pdf">On the minuscule representation of type <i>B<sub>n</sub></i>.</a> with William J. Cook.
+			<p><a href="papers2/minrepbn.pdf">On the minuscule representation of type <i>B<sub>n</sub></i>.</a> with William J. Cook.
 			<br>
 			Inolve <b>11</b> (2018), No. 5, 721-733. 
 			Available online <a href="https://doi.org/10.2140/involve.2018.11.721">(DOI) 10.2140/involve.2018.11.721</a> for subscribers.</p>
 
 		<h3>Theses</h3>
-			<p><a href="papers/fud.pdf">Uniform distinctions in reverse mathematics</a><br>
+			<p><a href="papers2/fud.pdf">Uniform distinctions in reverse mathematics</a><br>
 			Ph.D. thesis, University of Connecticut, 2021.</p>
 			
-			<p><a href="papers/undergradthesis.pdf">Reverse mathematics: Calibrating logical strength in mathematics</a><br>
+			<p><a href="papers2/undergradthesis.pdf">Reverse mathematics: Calibrating logical strength in mathematics</a><br>
 			Honors undergraduate thesis, Appalachian State University, 2014.</p>
 	</div>
 
-	<hr>
-
-	<div id="talks">
-	Listed below are all presentations I have given at scholarly meetings in chronological order.
+	<button type="button" class="collapsible">Talks</button>
+	<div id="talks" class="header">
+	<p>Listed below are all presentations I have given at scholarly meetings in chronological order.</p>
 
 	<h4>2019</h4>
        		<p>IMS Graduate Summer School in Logic<br>
@@ -138,9 +195,8 @@
        		Greensboro NC, October</p>
 	</div>
 
-	<hr>
-
-	<div id="teaching">
+	<button type="button" class="collapsible">Teaching</button>
+	<div id="teaching" class="header">
 	<p>I am currently teaching:</p>
 
 		<p style="text-indent: 7%;">Linear Algebra</p>
@@ -172,5 +228,21 @@
       <p style="text-indent: 7%;">College Algebra with Applications
         Fall 2014, Spring 2015</p>
 
+  <script>
+		var coll = document.getElementsByClassName("collapsible");
+		var i;
+
+		for (i = 0; i < coll.length; i++) {
+		  coll[i].addEventListener("click", function() {
+		    this.classList.toggle("active");
+		    var content = this.nextElementSibling;
+		    if (content.style.display === "block") {
+		      content.style.display = "none";
+		    } else {
+		      content.style.display = "block";
+		    }
+		  });
+		}
+	</script>
 </body>
 </html>

@@ -1,0 +1,118 @@
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=Cp1252">
+<title>matrix_inversion_by_row_reduction.html</title>
+<!-- Created by Maple 2018.2, Windows 10 -->
+</head>
+<a href="matrix_inversion_by_row_reduction.html#MapleAutoBookmark1">matrix_inversion_by_row_reduction.mw</a>
+<ul>
+</ul>
+<hr>
+<a name="MapleAutoBookmark1" />
+
+<body bgcolor="FFFFFF">
+<p align="left"><table>
+<tr>
+<td valign="top" align="center"><font color="#78000e" size="3" face="Courier New"><strong>&gt; </strong></font></td>
+<td valign="top"><font color="#78000e" size="3" face="Courier New"><strong>with(LinearAlgebra):
+<br>interface(rtablesize=infinity):
+<br>
+<br>#Here we load a few extra tools to be able to generate and work with matrics.
+<br></td>
+</tr>
+</table></strong></font>&nbsp;</p>
+<p align="left"><table>
+<tr>
+<td valign="top" align="center"><font color="#78000e" size="3" face="Courier New"><strong>&gt; </strong></font></td>
+<td valign="top"><font color="#78000e" size="3" face="Courier New"><strong>A &nbsp;&nbsp;:= RandomMatrix(5,5,density = 0.75,generator=2..4);
+<br>B &nbsp;&nbsp;:= RandomMatrix(14,14,density = 0.5,generator=-1..1);
+<br>
+<br>I5 &nbsp;:= IdentityMatrix(5):
+<br>I14 := IdentityMatrix(14):
+<br>
+<br>#Here we generate a random 5x5 matrix A, a random 14x14 matrix B and label the corresponding identity matrices I5 and I14.</td>
+</tr>
+</table></strong></font>&nbsp;</p>
+<p align="center"><table width='100%'>
+<tr>
+<td valign="top" align="center"><font color="#0000ff" size="3" face="Times New Roman"><img src="matrix_inversion_by_row_reduction_images/matrix_inversion_by_row_reduction_1.gif" width="166" height="131" alt="Typesetting:-mfenced(Typesetting:-mrow(Typesetting:-mtable(Typesetting:-mtr(Typesetting:-mtd(Typesetting:-mn("3", foreground = "[0,0,0]", readonly = "false", mathvariant = "normal"), rowalign = "", co..." align="center" border="0"></td>
+</tr></font>&nbsp;</p>
+<p align="center"><tr>
+<td valign="top" align="center"><font color="#0000ff" size="3" face="Times New Roman"><img src="matrix_inversion_by_row_reduction_images/matrix_inversion_by_row_reduction_2.gif" width="540" height="365" alt="Typesetting:-mfenced(Typesetting:-mrow(Typesetting:-mtable(Typesetting:-mtr(Typesetting:-mtd(Typesetting:-mn("1", foreground = "[0,0,0]", readonly = "false", mathvariant = "normal"), rowalign = "", co..." align="center" border="0"></td>
+<td width='5%' align='center'>(1)</td>
+</tr>
+</table></font>&nbsp;</p>
+<p align="left"><table>
+<tr>
+<td valign="top" align="center"><font color="#78000e" size="3" face="Courier New"><strong>&gt; </strong></font></td>
+<td valign="top"><font color="#78000e" size="3" face="Courier New"><strong>R5 := &lt;A|I5&gt;;
+<br>RAI := ReducedRowEchelonForm(R5);
+<br>
+<br>AI := MatrixInverse(A);
+<br>
+<br>#Here we set-up and row reduce the matrix A augmented with the 5x5 identity matrix. We then compute the matrix inverse of A using the built in calculator.
+<br>#Notice the right-hand side of the reduced echelon form is indeed the matrix Maple outputs as the inverse of A.
+<br></td>
+</tr>
+</table></strong></font>&nbsp;</p>
+<p align="center"><table width='100%'>
+<tr>
+<td valign="top" align="center"><font color="#0000ff" size="3" face="Times New Roman"><img src="matrix_inversion_by_row_reduction_images/matrix_inversion_by_row_reduction_3.gif" width="278" height="131" alt="Typesetting:-mfenced(Typesetting:-mrow(Typesetting:-mtable(Typesetting:-mtr(Typesetting:-mtd(Typesetting:-mn("3", foreground = "[0,0,0]", readonly = "false", mathvariant = "normal"), rowalign = "", co..." align="center" border="0"></td>
+</tr></font>&nbsp;</p>
+<p align="center"><tr>
+<td valign="top" align="center"><font color="#0000ff" size="3" face="Times New Roman"><img src="matrix_inversion_by_row_reduction_images/matrix_inversion_by_row_reduction_4.gif" width="396" height="229" alt="Typesetting:-mfenced(Typesetting:-mrow(Typesetting:-mtable(Typesetting:-mtr(Typesetting:-mtd(Typesetting:-mn("1", foreground = "[0,0,0]", readonly = "false", mathvariant = "normal"), rowalign = "", co..." align="center" border="0"></td>
+</tr></font>&nbsp;</p>
+<p align="center"><tr>
+<td valign="top" align="center"><font color="#0000ff" size="3" face="Times New Roman"><img src="matrix_inversion_by_row_reduction_images/matrix_inversion_by_row_reduction_5.gif" width="283" height="229" alt="Typesetting:-mfenced(Typesetting:-mrow(Typesetting:-mtable(Typesetting:-mtr(Typesetting:-mtd(Typesetting:-mrow(Typesetting:-mo("&uminus0;", foreground = "[0,0,0]", readonly = "false", mathvariant = "n..." align="center" border="0"></td>
+<td width='5%' align='center'>(2)</td>
+</tr>
+</table></font>&nbsp;</p>
+<p align="left"><table>
+<tr>
+<td valign="top" align="center"><font color="#78000e" size="3" face="Courier New"><strong>&gt; </strong></font></td>
+<td valign="top"><font color="#78000e" size="3" face="Courier New"><strong>R14 := &lt;B|I14&gt;;
+<br>RBI := ReducedRowEchelonForm(R14);
+<br>
+<br>BI := MatrixInverse(B);
+<br>
+<br>#Here we do the same thing for B! We set-up B to have relatively few values which are simple to ease the calculation.</td>
+</tr>
+</table></strong></font>&nbsp;</p>
+<p align="center"><table width='100%'>
+<tr>
+<td valign="top" align="center"><font color="#0000ff" size="3" face="Times New Roman"><img src="matrix_inversion_by_row_reduction_images/matrix_inversion_by_row_reduction_6.gif" width="768" height="331" alt="Typesetting:-mfenced(Typesetting:-mrow(Typesetting:-mtable(Typesetting:-mtr(Typesetting:-mtd(Typesetting:-mn("1", foreground = "[0,0,0]", readonly = "false", mathvariant = "normal"), rowalign = "", co..." align="center" border="0"></td>
+</tr></font>&nbsp;</p>
+<p align="center"><tr>
+<td valign="top" align="center"><font color="#0000ff" size="3" face="Times New Roman"><img src="matrix_inversion_by_row_reduction_images/matrix_inversion_by_row_reduction_7.gif" width="768" height="402" alt="Typesetting:-mfenced(Typesetting:-mrow(Typesetting:-mtable(Typesetting:-mtr(Typesetting:-mtd(Typesetting:-mn("1", foreground = "[0,0,0]", readonly = "false", mathvariant = "normal"), rowalign = "", co..." align="center" border="0"></td>
+</tr></font>&nbsp;</p>
+<p align="center"><tr>
+<td valign="top" align="center"><font color="#0000ff" size="3" face="Times New Roman"><img src="matrix_inversion_by_row_reduction_images/matrix_inversion_by_row_reduction_8.gif" width="658" height="502" alt="Typesetting:-mfenced(Typesetting:-mrow(Typesetting:-mtable(Typesetting:-mtr(Typesetting:-mtd(Typesetting:-mrow(Typesetting:-mo("&uminus0;", foreground = "[0,0,0]", readonly = "false", mathvariant = "n..." align="center" border="0"></td>
+<td width='5%' align='center'>(3)</td>
+</tr>
+</table></font>&nbsp;</p>
+<p align="left"><table>
+<tr>
+<td valign="top" align="center"><font color="#78000e" size="3" face="Courier New"><strong>&gt; </strong></font></td>
+<td valign="top"><font color="#78000e" size="3" face="Courier New"><strong>A.AI = AI.A;
+<br>B.BI = BI.B;
+<br>
+<br>#And quickly, we just verify that our calcuations are all correct and the matrices AI and BI are indeed the inverses of A and B.</td>
+</tr>
+</table></strong></font>&nbsp;</p>
+<p align="center"><table width='100%'>
+<tr>
+<td valign="top" align="center"><font color="#0000ff" size="3" face="Times New Roman"><img src="matrix_inversion_by_row_reduction_images/matrix_inversion_by_row_reduction_9.gif" width="265" height="131" alt="Typesetting:-mrow(Typesetting:-mfenced(Typesetting:-mfenced(Typesetting:-mrow(Typesetting:-mtable(Typesetting:-mtr(Typesetting:-mtd(Typesetting:-mn("1", foreground = "[0,0,0]", readonly = "false", mat..." align="center" border="0"></td>
+</tr></font>&nbsp;</p>
+<p align="center"><tr>
+<td valign="top" align="center"><font color="#0000ff" size="3" face="Times New Roman"><img src="matrix_inversion_by_row_reduction_images/matrix_inversion_by_row_reduction_10.gif" width="640" height="365" alt="Typesetting:-mrow(Typesetting:-mfenced(Typesetting:-mfenced(Typesetting:-mrow(Typesetting:-mtable(Typesetting:-mtr(Typesetting:-mtd(Typesetting:-mn("1", foreground = "[0,0,0]", readonly = "false", mat..." align="center" border="0"></td>
+<td width='5%' align='center'>(4)</td>
+</tr>
+</table></font>&nbsp;</p>
+<p align="left"><table>
+<tr>
+<td valign="top" align="center"><font color="#78000e" size="3" face="Courier New"><strong>&gt; </strong></font></td>
+<td valign="top"></td>
+</tr>
+</table>&nbsp;</p>
+</body>
+</html>
