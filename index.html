@@ -56,6 +56,13 @@
 		  overflow: hidden;
 		  /*background-color: #f1f1f1;*/
 		}
+
+		.header {
+			display: none; 
+			border: solid; 
+			padding: 0em 1em; 
+			border-color: #970C23;
+		}
 	</style>
 
 </head>
@@ -68,11 +75,9 @@
 		Department of Mathematics<br>
 		Winston-Salem State University<br>
 	</div>
-		
-	<!-- <hr> -->
 
 	<button type="button" class="collapsible">About</button>
-	<div id="about" style="display: none;">
+	<div id="about" class="header">
 		<p>Hello! I hope your enjoy your stay.</p>
 		
 		<p>My name is Noah Hughes and I am an Assistant Professor of mathematics at Winston-Salem State University.</p> 
@@ -92,10 +97,8 @@
 		</p>
 	</div>
 
-	<!-- <hr> -->
-
 	<button type="button" class="collapsible">Research</button>
-	<div id="research" style="display: none;">
+	<div id="research" class="header">
 		<p>Below you will find my scholarly work. Please note that all linked titles direct to unpublished drafts.</p>
 
 		<h3>Journal articles</h3>
@@ -124,11 +127,9 @@
 			Honors undergraduate thesis, Appalachian State University, 2014.</p>
 	</div>
 
-	<!-- <hr> -->
-
 	<button type="button" class="collapsible">Talks</button>
-	<div id="talks" style="display: none;">
-	Listed below are all presentations I have given at scholarly meetings in chronological order.
+	<div id="talks" class="header">
+	<p>Listed below are all presentations I have given at scholarly meetings in chronological order.</p>
 
 	<h4>2019</h4>
        		<p>IMS Graduate Summer School in Logic<br>
@@ -194,10 +195,8 @@
        		Greensboro NC, October</p>
 	</div>
 
-	<!-- <hr> -->
-
 	<button type="button" class="collapsible">Teaching</button>
-	<div id="teaching" style="display: none;">
+	<div id="teaching" class="header">
 	<p>I am currently teaching:</p>
 
 		<p style="text-indent: 7%;">Linear Algebra</p>
